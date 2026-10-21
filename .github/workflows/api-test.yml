@@ -1,3 +1,4 @@
+
 name: GoRest API Tests
 
 on:
@@ -24,7 +25,7 @@ jobs:
         env:
           GOREST_TOKEN: ${{ secrets.GOREST_TOKEN }}
         run: |
-          newman run Huỳnh Lê Minh Phú-2474802010308-GoRest.postman_collection.json \
-            -e Huỳnh Lê Minh Phú-2474802010308-GoRest_Env.postman_environment.json \
-            -d users.csv \
+          newman run "Huỳnh Lê Minh Phú-2474802010308-GoRest.postman_collection.json" \
+            -e "Huỳnh Lê Minh Phú-2474802010308-GoRest_Env.postman_environment.json" \
+            -d "users.csv" \
             --env-var "token=$GOREST_TOKEN"
