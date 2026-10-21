@@ -1,31 +1,26 @@
-
-name: GoRest API Tests
+name: API Test
 
 on:
   push:
-  workflow_dispatch:
 
 jobs:
-  api-tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+    - name: Setup NodeJS
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
 
-      - name: Install Newman
-        run: npm install -g newman
+    - name: Install Newman
+      run: npm install -g newman
 
-      - name: Run Postman Collection
-        env:
-          GOREST_TOKEN: ${{ secrets.GOREST_TOKEN }}
-        run: |
-          newman run "Huỳnh Lê Minh Phú-2474802010308-GoRest.postman_collection.json" \
-            -e "Huỳnh Lê Minh Phú-2474802010308-GoRest_Env.postman_environment.json" \
-            -d "users.csv" \
-            --env-var "token=$GOREST_TOKEN"
+    - name: Run Collection
+      run: |
+        newman run Collection.json \
+        -e Environment.json \
+        -d users.csv \
+        --env-var token=3bbb219eb2d6ea23de7d597df2b762910fa8bb099d9999a219ba19d705bff259
