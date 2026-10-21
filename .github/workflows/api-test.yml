@@ -25,6 +25,6 @@ jobs:
           GOREST_TOKEN: ${{ secrets.GOREST_TOKEN }}
         run: |
           newman run 2474802010202_PhanVinhThienKhoi_GoRest.postman_collection.json \
-            -e 2474802010202_PhanVinhThienKhoi_GoRest_Env.postman_environment.json \
+            -e Huỳnh Lê Minh Phú-2474802010308-Rores-Env.postman_environment.json \
             -d users.csv \
             --env-var "token=$GOREST_TOKEN"
