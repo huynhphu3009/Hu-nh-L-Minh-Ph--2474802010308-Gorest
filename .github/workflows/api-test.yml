@@ -18,9 +18,9 @@ jobs:
     - name: Install Newman
       run: npm install -g newman
 
-    - name: Run Collection
+    - name: Run collection
       run: |
-        newman run Collection.json \
-        -e Environment.json \
+        newman run collection.json \
+        -e environment.json \
         -d users.csv \
         --env-var token=3bbb219eb2d6ea23de7d597df2b762910fa8bb099d9999a219ba19d705bff259
